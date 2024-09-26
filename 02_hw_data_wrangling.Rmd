@@ -81,6 +81,7 @@ party_imcumbent_promote <- fb_ads |>
 knitr::kable(party_imcumbent_promote, col.names = c("Party", "Incumbency", "Average Proportion of Ads that Mention Candidate Only"), digits = 3)
 ```
 
+Incumbent democratic candidates sponsored the most promoting ads on average.
 
 
 \newpage
@@ -96,6 +97,16 @@ Create a histogram of this variable for just the US House races. Save the ggplot
 
 ## Answer 3
 
+```{r}
+fb_ads <- fb_ads |>
+  mutate(impressions_millions = impressions/1000000)
+plot_q3 <- ggplot(data = (fb_ads |> filter(office == "US House")), 
+                  mapping = aes(x = impressions_millions)) +
+  geom_histogram()
+plot_q3
+
+```
+The histogram has a very steep drop-off/negative slope from 0 to 5 million of the x axis. Most of the House candidates had less than 10 million impressions on Facebook.
 
 
 \newpage
