@@ -49,7 +49,7 @@ There are 7,014 candidates in the data set
 library(tidyverse)
 library(dplyr)
 fb_ads <- read_csv("data/fb_ads.csv")
-fb_ads |>
+imcumbency_table <- fb_ads |>
   count(incumbency) |>
 knitr::kable()
 
@@ -74,7 +74,7 @@ In the writeup, describe which type of candidate sponsored the most promoting ad
 
 ## Answer 2
 ```{r}
-party_imcumbent_promote <- fb_ads |>
+party_incumbent_promote <- fb_ads |>
   filter(office == "US House" | office == "US Senate") |>
   group_by(party, incumbency) |>
   summarize(promote_prop = mean(ad_tone_promote, na.rm = TRUE))
