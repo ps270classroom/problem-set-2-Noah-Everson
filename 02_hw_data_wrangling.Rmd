@@ -50,9 +50,9 @@ library(tidyverse)
 library(dplyr)
 fb_ads <- read_csv("data/fb_ads.csv")
 incumbency_table <- fb_ads |>
-  count(incumbency) |>
-knitr::kable()
-incumbency_table
+  count(incumbency)
+knitr::kable(incumbency_table)
+
 
 ```
 
